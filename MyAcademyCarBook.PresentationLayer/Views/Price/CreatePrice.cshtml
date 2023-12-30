@@ -1,0 +1,28 @@
+﻿@model Price
+@{
+    ViewData["Title"] = "CreatePrice";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Araç Ödeme Planı Girişi</h1>
+
+
+<form method="post">
+    <label>Araba</label>
+    @Html.DropDownListFor(x=>x.CarID,(List<SelectListItem>)ViewBag.v1,new {@class="form-control",@style="border:1px solid #2222"})
+        <br />
+        <label>Ödeme Planı Giriniz</label>
+    <select class="form-select" style="width:150px;" asp-for="PriceType">
+        <option value="Haftalık">Haftalık</option>
+        <option value="Günlük">Günlük</option>
+        <option value="Aylık">Aylık</option>
+    </select>
+    <label>Fiyat Giriniz</label>
+    <input type="text" asp-for="PriceValue" class="form-control" style="border:1px solid #222" />
+
+    <br />
+   
+
+    <button type="submit" class="btn btn-outline-success">GÖNDER</button>
+</form>
+
